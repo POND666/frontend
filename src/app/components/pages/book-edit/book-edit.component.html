@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="book-edit.component.css">
+<div class="box-staff container mt-4 p-5 w-50">
+    <h1>Edit Book</h1>
+    <hr class="mb-4">
+    <form [formGroup]="editForm">
+        <div class="mb-3">
+            <label class="form-label">name</label>
+            <input type="text" class="form-control" required formControlName="name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">author</label>
+            <input type="text" class="form-control" required formControlName="author">
+        </div>
+        <div class="mb-5">
+            <label class="form-label">publicher</label>
+            <input type="text" class="form-control" required formControlName="publicher">
+        </div>
+        <div class="mb-5">
+            <label class="form-label">price</label>
+            <input type="text" class="form-control" required formControlName="price">
+        </div>
+        <hr>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class=" btn-info" (click)="editBook()">Update</button>
+        </div>
+    </form>
+</div>

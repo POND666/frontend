@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="borrow.component.css">
+<div class="row mt-3">
+  <div class="col-md-12" style="text-align: right;">
+    <a routerLink="/borrow/add" class="btn btn-success">Add new Borrowing</a>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="h1">All Borrowed</div>
+  <div class="input-group my-3" [formGroup]="searchForm">
+    <input type="text" class="form-control" placeholder="Member" formControlName="searchId" />
+    <button class="input-group-text btn btn-primary" (click)="searchId()">Search</button>
+</div>
+  <div class="col-md-12 mt-2">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Member</th>
+                <th>book</th>
+                <th>borrowDate</th>
+                <th>lender</th>
+                <th>receiver</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <td>Nona</td>
+                <td>Naruto เล่ม 1</td>
+                <td>13/02/65</td>
+                <td>ฉันเอง</td>
+                <td>ฉันเหมือนกัน</td>
+                <td>
+                    <a class="btn btn-info btn-sm" routerLink="/borrow/edit/">
+                        Edit
+                    </a> &nbsp;
+                    <a class="btn btn-danger btn-sm" >
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="staff.component.css">
+<div class="row mt-3">
+    <div class="col-md-12" style="text-align: right;">
+        <a routerLink="/staff/add" class="btn btn-success">Add new Staff</a>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="h1">All Staff</div>
+    <div class="input-group my-3" [formGroup]="searchForm">
+        <input type="text" class="form-control" placeholder="Staff" formControlName="searchId" />
+        <button class="input-group-text btn btn-primary" (click)="searchId()">Search</button>
+    </div>
+    <div class="col-md-12 mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Staff ID</th>
+                    <th>Staff Name</th>
+                    <th>Address</th>
+                    <th>phoneNumber</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let s of staff">
+                    <td>{{ s.staff_id }}</td>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.address }}</td>
+                    <td>{{ s.phoneNumber }}</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" routerLink="/staff/edit/{{s._id}}">
+                            Edit
+                        </a> &nbsp;
+                        <a class="btn btn-danger btn-sm" (click)="deleteStaff(s._id)">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

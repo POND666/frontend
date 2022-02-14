@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="book.component.css">
+<div class="row mt-3">
+    <div class="col-md-12" style="text-align: right;">
+        <a routerLink="/book/addbook" class="btn btn-success">Add new Book</a>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="h1">All Book</div>
+    <div class="input-group my-3" [formGroup]="searchForm">
+        <input type="text" class="form-control" placeholder="Book" formControlName="searchName" />
+        <button class="input-group-text btn btn-primary" (click)="searchName()">Search</button>
+    </div>
+    <div class="col-md-12 mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let b of book">
+                    <td>{{ b.bookID }}</td>
+                    <td>{{ b.name }}</td>
+                    <td>{{ b.author }}</td>
+                    <td>{{ b.publicher }}</td>
+                    <td>{{ b.price }}</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" routerLink="/book/edit/{{ b._id }}">
+                            Edit
+                        </a> &nbsp;
+                        <a class="btn btn-danger btn-sm" (click)="deleteBook(b._id)">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
